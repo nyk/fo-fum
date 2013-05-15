@@ -1,0 +1,3 @@
+lahu_beanstalk_homepage:
+    pattern:  /
+    defaults: { _controller: LahuBeanstalkBundle:Default:index }

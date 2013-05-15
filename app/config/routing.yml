@@ -1,0 +1,4 @@
+lahu_beanstalk:
+    resource: "@LahuBeanstalkBundle/Resources/config/routing.yml"
+    prefix:   /
+

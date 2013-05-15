@@ -1,0 +1,50 @@
+{% extends "LahuBeanstalkBundle::layout.html.twig" %}
+
+{% block title "Hello " %}
+{% block head %}
+<script type="text/javascript">
+var viewModel = function () {
+    var self = this;
+    self.val = ko.observable(50);
+    self.min = ko.observable(0);
+    self.max = ko.observable(100);
+};
+
+$(document).ready(function () {
+    var vm = new viewModel();
+    ko.applyBindings(vm);
+});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div id="mainmenu">
+        <ul id="menu" data-bind="wijmenu: {}">
+            <li><a>Preferences</a></li>
+            <li><a>Servers</a>
+                <ul>
+                   <li><a>List servers</a></li>
+                   <li><a>Add a server</a></li>
+                </ul>
+            </li>
+            <li><a>menuitem2</a></li>
+            <li><a>menuitem3</a></li>
+        </ul>
+    </div>
+    <h1>Hello!</h1>
+    {% for tube in tubes %}
+        <p>Tube: {{ tube }}</p>
+    {% endfor %}
+    <div class="container">
+        <h2>Textbox</h2>
+        <input data-bind="value: val" style="width: 200px;" /> <span data-bind="text: val"></span>
+        <div>
+            <h2>Slider</h2>
+            <div data-bind="wijslider: { value: val, min: min, max: max }" style="width: 200px;">
+            </div>
+            <h2>Gauge</h2>
+            <div data-bind="wijlineargauge: {value: val, min: min, max: max }">
+            </div>
+         </div>
+    </div>
+{% endblock %}
